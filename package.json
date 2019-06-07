@@ -1,0 +1,17 @@
+{
+  "name": "@getkickback/wasmcamera",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "webpack-cli": "^3.3.3",
+    "webpack": "^4.33.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
