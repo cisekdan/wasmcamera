@@ -13,4 +13,6 @@ const greyscale = (frame) => {
   return frame;
 };
 
+greyscale.toString = () => '[JS] Greyscale';
+
 export default greyscale;
