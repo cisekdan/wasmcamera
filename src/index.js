@@ -18,7 +18,7 @@ const prepareEffectPreview = (video, effect, name = effect.toString()) => {
   wrapper.appendChild(timeDisplay);
   document.querySelector('#displays').appendChild(wrapper);
   videoPreprocessor(video, canvas, effect, (time) => {
-    timeDisplay.textContent = `${1000/time} FPS`;
+    timeDisplay.textContent = `${Math.round(1000/time)} FPS`;
   });
 };
 
@@ -27,7 +27,10 @@ window.onload = () => {
     const video = document.querySelector('video');
     await setVideoSource(video);
     // prepareEffectPreview(video, jsEffects.meanFilter);
-    prepareEffectPreview(video, watEffects.greyscale);
+    prepareEffectPreview(video, jsEffects.sepia);
+
+    // prepareEffectPreview(video, watEffects.greyscale);
     // prepareEffectPreview(video, watEffects.meanFilter);
+    prepareEffectPreview(video, watEffects.sepia);
   })();
 };

@@ -1,8 +1,13 @@
 * {
+    background: black;
     margin: 0;
     padding: 0;
+    color: white;
 }
 
+#displays {
+    margin: 100px 0px;
+}
 .display canvas {
     padding: 10px;
 }
@@ -12,9 +17,17 @@ canvas {
 }
 
 .display {
-    width: 100%;
-    background: #888;
+    float: left;
+    width: 45%;
+    padding: 1%;
+}
+
+.display:nth-child(n + 2) {
+    border-left: solid 5px white;
 }
 .display time {
-
+    color: yellow;
+    position: relative;
+    bottom: 30px;
+    left: 90%;
 }
