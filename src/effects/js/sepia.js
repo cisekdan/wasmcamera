@@ -1,19 +1,27 @@
 const delta = 20;
 
 const filter = async (imageData) => {
-  for (let i = 0; i < imageData.data.length; i += 4) {
-    let r = imageData.data[i];
-    let g = imageData.data[i + 1];
-    let b = imageData.data[i + 2];
+  const { data } = imageData;
+  const buffer = new Uint32Array(data);
+  buffer.set(data);
+  for (let i = 0; i < buffer.length; i += 4) {
+    let r = buffer[i];
+    let g = buffer[i + 1];
+    let b = buffer[i + 2];
 
     r = Math.min(255, r + 2 * delta);
     g = Math.min(255, g + delta);
 
-    imageData.data[i] = r;
-    imageData.data[i + 1] = g;
-    imageData.data[i + 2] = b;
+    buffer[i] = r;
+    buffer[i + 1] = g;
+    buffer[i + 2] = b;
   }
-  return imageData;
+  return new ImageData(
+    new Uint8ClampedArray(buffer),
+    imageData.width,
+    imageData.height,
+  );
+  // return imageData;
 };
 
 filter.toString = () => '[JS] Sepia';

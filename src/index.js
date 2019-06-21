@@ -8,6 +8,8 @@ import {
 const dimensions = { width: 640, height: 480 };
 
 const prepareEffectPreview = (video, effect, name = effect.toString()) => {
+  let totalTime = 0;
+  let renders = 0;
   const canvas = document.createElement('canvas');
   Object.entries(dimensions).map(([k, v]) => canvas[k] = v);
   const wrapper = document.createElement('div');
@@ -18,7 +20,9 @@ const prepareEffectPreview = (video, effect, name = effect.toString()) => {
   wrapper.appendChild(timeDisplay);
   document.querySelector('#displays').appendChild(wrapper);
   videoPreprocessor(video, canvas, effect, (time) => {
-    timeDisplay.textContent = `${Math.round(1000/time)} FPS`;
+    totalTime += time;
+    renders++;
+    timeDisplay.textContent = `x̄  = ${Math.round(totalTime/renders)} ms`;
   });
 };
 
