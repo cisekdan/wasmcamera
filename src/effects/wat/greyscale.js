@@ -9,7 +9,7 @@ let memory = new WebAssembly.Memory({ initial: 75 });
 const greyscale = async (frame) => {
   const { data } = frame;
 
-  const buffer = toBuffer(data, memory.buffer);
+  const buffer = toBuffer(memory.buffer, data);
 
   const importObject = { js: { memory } };
   const { instance } = await getWasmInstance('./dist/greyscale.wasm', importObject);
