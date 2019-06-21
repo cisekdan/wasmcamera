@@ -26,6 +26,10 @@ const prepareEffectPreview = (video, effect, name = effect.toString()) => {
   });
 };
 
+const sets = {
+  greyscale: [jsEffects.greyscale, watEffects.greyscale],
+};
+
 const getFilterIdentifier = (defaultValue) => (new URL(document.location)).searchParams.get('filter') || defaultValue;
 
 window.onload = () => {
@@ -33,7 +37,6 @@ window.onload = () => {
     const filterIdentifier = getFilterIdentifier('greyscale');
     const video = document.querySelector('video');
     await setVideoSource(video);
-    prepareEffectPreview(video, jsEffects[filterIdentifier]);
-    prepareEffectPreview(video, watEffects[filterIdentifier]);
+    sets[filterIdentifier].forEach(effect => prepareEffectPreview(video, effect));
   })();
 };
