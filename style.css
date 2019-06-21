@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.display canvas {
+    padding: 10px;
+}
+canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+.display {
+    width: 100%;
+    background: #888;
+}
+.display time {
+
+}

@@ -1,4 +1,4 @@
-const greyscale = (frame) => {
+const greyscale = async (frame) => {
   const length = frame.data.length / 4;
   for (let i = 0; i < length; i++) {
     const offset = i * 4;
