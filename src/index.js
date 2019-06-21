@@ -29,6 +29,8 @@ const prepareEffectPreview = (video, effect, name = effect.toString()) => {
 const sets = {
   greyscale: [jsEffects.greyscale, watEffects.greyscale],
   greyscaleBuffer: [jsEffects.greyscaleBuffer, watEffects.greyscale],
+  sepia: [jsEffects.sepia, watEffects.sepia],
+  sepiaBuffer: [jsEffects.sepiaBuffer, watEffects.sepia],
 };
 
 const getSetIdentifier = (defaultValue = null) => (new URL(document.location)).searchParams.get('set') || defaultValue;
