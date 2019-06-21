@@ -11,7 +11,7 @@ const getWasmInstance = async (file, importData) => {
   return wasmInstance;
 };
 
-const greyscale = async (frame) => {
+const filter = async (frame) => {
   const { data } = frame;
   const buffer = new Uint32Array(memory.buffer);
   buffer.set(data);
@@ -27,6 +27,6 @@ const greyscale = async (frame) => {
   );
 };
 
-greyscale.toString = () => '[WAT] Mean filter';
+filter.toString = () => '[WAT] Mean filter';
 
-export default greyscale;
+export default filter;
