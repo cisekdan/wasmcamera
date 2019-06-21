@@ -1,15 +1,6 @@
-let wasmInstance = null;
-let memory = new WebAssembly.Memory({ initial: 75 });
+import getWasmInstance from '../../wasm/getInstance';
 
-const getWasmInstance = async (file, importData) => {
-  if (wasmInstance) {
-    return wasmInstance;
-  }
-  const response = await fetch(file);
-  const buffer = await response.arrayBuffer();
-  wasmInstance = await WebAssembly.instantiate(buffer, importData);
-  return wasmInstance;
-};
+let memory = new WebAssembly.Memory({ initial: 75 });
 
 const greyscale = async (frame) => {
   const { data } = frame;

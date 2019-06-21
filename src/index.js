@@ -27,7 +27,7 @@ window.onload = () => {
     const video = document.querySelector('video');
     await setVideoSource(video);
     // prepareEffectPreview(video, jsEffects.meanFilter);
-    // prepareEffectPreview(video, watEffects.greyscale);
-    prepareEffectPreview(video, watEffects.meanFilter);
+    prepareEffectPreview(video, watEffects.greyscale);
+    // prepareEffectPreview(video, watEffects.meanFilter);
   })();
 };
