@@ -1,7 +1,7 @@
 import greyscale from './greyscale';
 import meanFilter from './meanFilter';
 
-export {
+export default {
   greyscale,
   meanFilter,
 };

@@ -1,7 +1,9 @@
 import { setVideoSource } from './camera';
 import videoPreprocessor from './videoProcessor';
-import * as jsEffects from './effects/js';
-import * as watEffects from './effects/wat';
+import {
+  js as jsEffects,
+  wat as watEffects
+} from './effects';
 
 const dimensions = { width: 640, height: 480 };
 
@@ -26,6 +28,6 @@ window.onload = () => {
     await setVideoSource(video);
     // prepareEffectPreview(video, jsEffects.meanFilter);
     // prepareEffectPreview(video, watEffects.greyscale);
-    prepareEffectPreview(video, watEffects.filter);
+    prepareEffectPreview(video, watEffects.meanFilter);
   })();
 };
