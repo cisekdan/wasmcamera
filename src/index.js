@@ -31,13 +31,12 @@ const sets = {
   greyscaleBuffer: [jsEffects.greyscaleBuffer, watEffects.greyscale],
 };
 
-const getFilterIdentifier = (defaultValue) => (new URL(document.location)).searchParams.get('filter') || defaultValue;
+const getSetIdentifier = (defaultValue = null) => (new URL(document.location)).searchParams.get('set') || defaultValue;
 
 window.onload = () => {
   (async () => {
-    const filterIdentifier = getFilterIdentifier('greyscale');
     const video = document.querySelector('video');
     await setVideoSource(video);
-    sets[filterIdentifier].forEach(effect => prepareEffectPreview(video, effect));
+    sets[getSetIdentifier()].forEach(effect => prepareEffectPreview(video, effect));
   })();
 };
