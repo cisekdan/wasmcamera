@@ -1,7 +1,7 @@
 import { setVideoSource } from './camera';
 import videoPreprocessor from './videoProcessor';
-import { greyscale as jsGreyscaleEffect } from './effects/js';
-import { greyscale as watGreyscaleEffect } from './effects/wat';
+import * as jsEffects from './effects/js';
+import * as watEffects from './effects/wat';
 
 const dimensions = { width: 640, height: 480 };
 
@@ -24,7 +24,8 @@ window.onload = () => {
   (async () => {
     const video = document.querySelector('video');
     await setVideoSource(video);
-    // prepareEffectPreview(video, jsGreyscaleEffect);
-    prepareEffectPreview(video, watGreyscaleEffect);
+    // prepareEffectPreview(video, jsEffects.meanFilter);
+    // prepareEffectPreview(video, watEffects.greyscale);
+    prepareEffectPreview(video, watEffects.meanFilter);
   })();
 };

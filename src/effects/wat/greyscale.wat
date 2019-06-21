@@ -1,6 +1,5 @@
 (module
  (import "js" "memory" (memory 1))
- (import "js" "log" (func $log (param i32)))
  (table 0 anyfunc)
  (export "effect" (func $effect))
  (export "calculateGrayscale" (func $calculateGreyscale))

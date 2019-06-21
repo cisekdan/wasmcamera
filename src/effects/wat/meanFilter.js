@@ -17,9 +17,9 @@ const greyscale = async (frame) => {
   buffer.set(data);
 
   const importObject = { js: { memory } };
-  const { instance } = await getWasmInstance('./dist/greyscale.wasm', importObject);
+  const { instance } = await getWasmInstance('./dist/meanFilter.wasm', importObject);
 
-  instance.exports.effect(0, data.length);
+  instance.exports.effect(0, data.length, frame.width);
   return new ImageData(
     new Uint8ClampedArray(buffer),
     frame.width,
@@ -27,6 +27,6 @@ const greyscale = async (frame) => {
   );
 };
 
-greyscale.toString = () => '[WAT] Greyscale';
+greyscale.toString = () => '[WAT] Mean filter';
 
 export default greyscale;
