@@ -22,15 +22,14 @@ const prepareEffectPreview = (video, effect, name = effect.toString()) => {
   });
 };
 
+const getFilterIdentifier = (defaultValue) => (new URL(document.location)).searchParams.get('filter') || defaultValue;
+
 window.onload = () => {
   (async () => {
+    const filterIdentifier = getFilterIdentifier('greyscale');
     const video = document.querySelector('video');
     await setVideoSource(video);
-    // prepareEffectPreview(video, jsEffects.meanFilter);
-    prepareEffectPreview(video, jsEffects.sepia);
-
-    // prepareEffectPreview(video, watEffects.greyscale);
-    // prepareEffectPreview(video, watEffects.meanFilter);
-    prepareEffectPreview(video, watEffects.sepia);
+    prepareEffectPreview(video, jsEffects[filterIdentifier]);
+    prepareEffectPreview(video, watEffects[filterIdentifier]);
   })();
 };
