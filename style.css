@@ -5,12 +5,27 @@
     color: white;
 }
 
-#displays {
-    margin: 100px 0px;
+#set-list {
+    list-style: square;
 }
+
+#set-list li {
+    display: inline;
+    margin-left: 20px;
+}
+
+video {
+    margin: 60px 25%;
+}
+
+#displays {
+    margin: 50px 0px;
+}
+
 .display canvas {
     padding: 10px;
 }
+
 canvas {
     display: block;
     margin: 0 auto;

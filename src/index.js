@@ -26,6 +26,16 @@ const prepareEffectPreview = (video, effect, name = effect.toString()) => {
   });
 };
 
+const populateSetList = () => Object.keys(sets).forEach((setIdentifier) => {
+  const li = document.createElement('li');
+  const link = document.createElement('a');
+  link.appendChild(document.createTextNode(setIdentifier));
+  link.href = `?set=${setIdentifier}`;
+  li.appendChild(link);
+  document.querySelector('#set-list')
+    .appendChild(li);
+});
+
 const sets = {
   greyscale: [jsEffects.greyscale, watEffects.greyscale],
   greyscaleBuffer: [jsEffects.greyscaleBuffer, watEffects.greyscale],
@@ -39,8 +49,10 @@ const getSetIdentifier = (defaultValue = null) => (new URL(document.location)).s
 
 window.onload = () => {
   (async () => {
+    const defaultSetIdentifier = Object.keys(sets)[0];
     const video = document.querySelector('video');
     await setVideoSource(video);
-    sets[getSetIdentifier()].forEach(effect => prepareEffectPreview(video, effect));
+    populateSetList();
+    sets[getSetIdentifier(defaultSetIdentifier)].forEach(effect => prepareEffectPreview(video, effect));
   })();
 };
