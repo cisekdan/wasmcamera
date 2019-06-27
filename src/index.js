@@ -20,7 +20,9 @@ const prepareEffectPreview = (video, effect, name = effect.toString()) => {
   wrapper.appendChild(timeDisplay);
   document.querySelector('#displays').appendChild(wrapper);
   videoPreprocessor(video, canvas, effect, (time) => {
-    totalTime += time;
+    if (renders > 5) {
+      totalTime += time;
+    }
     renders++;
     timeDisplay.textContent = `x̄  = ${Math.round(totalTime/renders)} ms`;
   });
